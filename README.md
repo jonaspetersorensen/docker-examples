@@ -12,7 +12,7 @@ So far my experience have been that when you use
 
 - `docker run -v {host-directory}:{container-directory}`  
   The `{host-directory}` has to be an absolute path.  
-  Using relative paths seems to be an hit or miss according to which docker version is used, the amount of coffe available for debugging and divine intervention.  
+  Using relative paths seems to be an hit or miss according to which docker version is used, the amount of coffee available for debugging and divine intervention.  
 
 - `docker-compose`  
   ```yaml
@@ -25,8 +25,7 @@ So far my experience have been that when you use
 - Unix paths,  
   you just need to use the OS dependent docker client when starting the container to get the correct path translation from the docker client to the docker server.
 
-As I want to use relative paths to keep things sane I therefore default to use `docker-compose` even when I just need to run a single container.  
-It saves a lot of headache and trips into rabbit holes.
+As I want to use relative paths to keep things sane I therefore default to use `docker-compose` even when I just need to run a single container. It saves a lot of headache and avoid long trips into rabbit holes.
 
 
 ### How to get volume mounting to work in WSL1
