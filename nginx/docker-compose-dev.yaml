@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  nginx-example:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 3000:3001
+    volumes:
+      - "./www:/app/www"
+      
