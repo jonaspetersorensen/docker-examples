@@ -10,15 +10,23 @@ This is where you run into the problem of relative vs absolute paths when mounti
 
 So far my experience have been that when you use
 
-- `docker run -v {host-directory}:{container-directory}` then the `{host-directory}` has to be an absolute path.  
+- `docker run -v {host-directory}:{container-directory}`  
+  The `{host-directory}` has to be an absolute path.  
   Using relative paths seems to be an hit or miss according to which docker version is used, the amount of coffe available for debugging and divine intervention.  
 
-- `docker-compose` then in the yaml the `{host-directory}` can be a relative path, and it will work every time  
+- `docker-compose`  
+  ```yaml
+  # docker-compose.yaml
+  volumes:
+      - "{host-directory}:{container-directory}"
+  ```
+  The `{host-directory}` in the yaml can be a relative path, and it will work every time  
 
-- Use unix paths.  
-  You just need to use the OS dependent client when starting the container to get the correct path translation to the docker server.
+- Unix paths,  
+  you just need to use the OS dependent docker client when starting the container to get the correct path translation from the docker client to the docker server.
 
-As I want to use relative paths to keep things sane I therefore default to use `docker-compose` even when I just need to run a single container.
+As I want to use relative paths to keep things sane I therefore default to use `docker-compose` even when I just need to run a single container.  
+It saves a lot of headache and trips into rabbit holes.
 
 
 ### How to get volume mounting to work in WSL1
