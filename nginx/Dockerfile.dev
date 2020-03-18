@@ -9,7 +9,7 @@ WORKDIR /app
 # We'll mount in the src files for local development
 #COPY ./www /app/www
 COPY ./server server
-RUN cp /app/server/nginx.conf /etc/nginx/conf.d/default.conf \
+RUN cp /app/server/nginx.conf /etc/nginx/nginx.conf \
    && chmod +x server/init_app.sh
 EXPOSE 3001
 CMD /bin/sh -c "source server/init_app.sh"
