@@ -23,7 +23,8 @@ So far my experience have been that when you use
   The `{host-directory}` in the yaml can be a relative path, and it will work every time  
 
 - Unix paths,  
-  you just need to use the OS dependent docker client when starting the container to get the correct path translation from the docker client to the docker server.
+  you just need to use the docker client that lives in the same OS as the docker server when starting the container to get the correct path translation from the docker client to the docker server.
+Example: in windows then use the windows docker client to start the container.
 
 As I want to use relative paths to keep things sane I therefore default to use `docker-compose` even when I just need to run a single container. It saves a lot of headache and avoid long trips into rabbit holes.
 
