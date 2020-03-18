@@ -11,5 +11,5 @@ WORKDIR /app
 COPY ./server server
 RUN cp /app/server/nginx.conf /etc/nginx/nginx.conf \
    && chmod +x server/init_app.sh
-EXPOSE 3001
+EXPOSE 80
 CMD /bin/sh -c "source server/init_app.sh"
