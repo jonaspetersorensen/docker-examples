@@ -21,6 +21,7 @@ So far my experience have been that when you use
       - "{host-directory}:{container-directory}"
   ```
   The `{host-directory}` in the yaml can be a relative path, and it will work every time  
+  Why does this work? Most likely because `docker-compose` does not rely on the `docker`client, it does it's own thing.
 
 - Unix paths,  
   you just need to use the docker client that lives in the same OS as the docker server when starting the container to get the correct path translation from the docker client to the docker server.
