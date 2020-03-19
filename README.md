@@ -10,17 +10,17 @@ This is where you run into the problem of relative vs absolute paths when mounti
 
 So far my experience have been that when you use
 
-- `docker run -v {host-directory}:{container-directory}`  
-  The `{host-directory}` has to be an absolute path.  
+- `docker run -v {host-path}:{container-path}`  
+  The `{host-path}` has to be an absolute path.  
   Using relative paths seems to be an hit or miss according to which docker version is used, the amount of coffee available for debugging and divine intervention.  
 
 - `docker-compose`  
   ```yaml
   # docker-compose.yaml
   volumes:
-      - "{host-directory}:{container-directory}"
+      - "{host-path}:{container-path}"
   ```
-  The `{host-directory}` in the yaml can be a relative path, and it will work every time  
+  The `{host-path}` in the yaml can be a relative path, and it will work every time  
   Why does this work? Most likely because `docker-compose` does not rely on the `docker` client when talking to the docker server, and who ever developed it likes their code to be consistent.
 
 - Unix paths,  
