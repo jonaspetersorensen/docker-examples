@@ -7,7 +7,7 @@ The demo app is a simple static web app served by nginx.
 The [webpack](https://webpack.js.org/guides/) configuration is a close to vanilla as possible.
 
 
-## Table of contets
+## Table of contents
 
 - [Development](./README.MD#Development)
   - [Start](./README.MD#Start)
