@@ -1,7 +1,7 @@
 # docker-examples
 
 In this repo you will find a few examples of how to configure docker containers for misc development purposes.  
-
+Each directory is a self-contained demo for a given use case.
 
 ## Volume paths
 
