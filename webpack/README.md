@@ -1,9 +1,25 @@
-# Demo webpack dev environment
+# Demo webpack development environment in docker
 
 This demo will show you how you can run webpack development environment (webpack server, hot reloading etc) from a docker container, while keeping the files in sync with host.  
 Note that `node_modules` is not shared with host (host will see an an empty dir).
 
-## Usage
+The demo app is a simple static web app served by nginx.  
+The [webpack](https://webpack.js.org/guides/) configuration is a close to vanilla as possible.
+
+
+## Table of contets
+
+- [Development](./README.MD#Development)
+  - [Start](./README.MD#Start)
+  - [Stop](./README.MD#Stop)
+  - [Notes](./README.md#Notes)
+  - [Starting from scratch](./README.md#Starting-from-scratch)
+- [Build and run release image](./README.MD#Build-and-run-release-image)
+
+
+## Development
+
+The [`./docker-compose.yaml`](./docker-compose.yaml) contains everything we need to run a development environment.
 
 ### Start
 
@@ -18,7 +34,7 @@ docker-compose up --build
 #### _Session 2: Run commands inside the webpack container_  
 ```sh
 # Open a bash session into the webpack container
-docker exec -it webpack_container bash
+docker exec -it webpack-development_container bash
 
 # From inside the container you can then run any npm command.
 # First install all packages. You can later skip this step as long as docker volume "webpack_node-modules" still exist.
@@ -30,7 +46,7 @@ You should now be able to access the webpack server from the host at http://loca
 
 #### _Session 3: Access the files in host_  
 ```sh
-# Bring up your IDE and start hacking away
+# Bring up your IDE and start hacking away. 
 code .
 
 # Run git commands etc
@@ -52,9 +68,9 @@ docker-compose down -v
 ```
 
 
-## webpack-dev-server and docker gotchas
+### Notes
 
-To make the server accessible outside the container then you must set the `--host` option when starting the server.  
+To make the webpack-dev-server accessible outside the container then you must set the `--host` option when starting the server.  
 
 Example `package.json`:
 ```js
@@ -69,17 +85,30 @@ Example `package.json`:
 }
 ```
 
-## Starting from scratch
+
+### Starting from scratch
 
 Say you want to start a new nodejs project and build up `package.js` and `webpack.config.js` from scratch.  
 
-All you have to do is to remove those files from this demo and simply start building them using the tools availble in the webpack_container.
+All you have to do is to remove those files from this demo and simply start building them using the tools availble in the webpack-development_container.
 
 ```sh
 # Open a bash session into the webpack container
-docker exec -it webpack_container bash
+docker exec -it webpack-development_container bash
 
 # From inside the container you can then run any npm command.
 npm init
 npm install --save-dev webpack webpack-cli webpack-dev-server
+```
+
+
+## Build and run release image
+
+The [`./Dockerfile`](./Dockerfile) is a multistage build that will produce a minimal release image.  
+Please note that webpack is set to development mode in this demo. You should add your own configuration for webpack production mode (mine tend to differ from project to project).
+
+
+```sh
+docker build -t webpack-demo-release .
+docker run -it --rm -p 3000:80 webpack-demo-release
 ```
