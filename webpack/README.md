@@ -14,7 +14,7 @@ The [webpack](https://webpack.js.org/guides/) configuration is a close to vanill
   - [Stop](./README.MD#Stop)
   - [Notes](./README.md#Notes)
   - [Starting from scratch](./README.md#Starting-from-scratch)
-- [Build and run release image](./README.MD#Build-and-run-release-image)
+- [Build and run release image](./README.md#build-and-run-release-image)
 
 
 ## Development
