@@ -1,6 +1,6 @@
 # docker-examples
 
-In this repo you will find a few examples of how to configure docker containers for misc developer purposes.  
+In this repo you will find a few examples of how to configure docker containers for misc development purposes.  
 
 
 ## Volume paths
