@@ -67,17 +67,7 @@ module.exports = {
    plugins: [
       new RemovePlugin({
          before: {
-            // parameters for "before normal compilation" stage.
-            // expects what your output folder is "dist".
-            test: [
-               {
-                  folder: "./dist",
-                  method: () => true
-               }
-            ],
-            exclude: [
-               "./dist/.gitkeep"
-            ]
+            // parameters for "before normal compilation" stage.]
          },
          watch: {
             // parameters for "before watch compilation" stage.
