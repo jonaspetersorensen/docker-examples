@@ -8,7 +8,7 @@
    The file in host directory says hello.<br />
    Inspect the console log to see the env.json as prepared by the init_app.sh script.
    <script>
-      fetch("./env.json")
+      fetch("./data.json")
          .then(response => response.json())
          .then(json => console.log(json));
    </script>
