@@ -120,7 +120,7 @@ Please note that webpack is set to development mode in this demo. You should add
 
 ```sh
 docker build -t webpack-demo-release .
-docker run -it --rm -p 3000:80 --name webpack-demo-release webpack-demo-release
+docker run -it --rm -p 3000:8080 --name webpack-demo-release webpack-demo-release
 
 # Inspect contents
 docker exec -it webpack-demo-release sh
