@@ -8,7 +8,7 @@ Nginx configuration is in directory `./server`
 
 1. Open a terminal (windows command prompt if using WLS1)
 1. Navigate to this directory
-1. Run command `docker-compose -f docker-compose-dev.yaml up --build --remove-orphans`
+1. Run command `docker-compose up --build --remove-orphans`
 1. Open a browser and go to `http:\\localhost:3000`
 1. Start hacking away in dir `./www` and reload browser to see results 
 
